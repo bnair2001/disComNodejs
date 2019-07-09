@@ -57,7 +57,7 @@ app.post("/getData", (req, res) => {
 //enpoint for the android app to check if there is a new update on the node
 app.get("/updateCheck", (req, res) => {
   let isUpdated = fs.readFileSync(link2, "utf8");
-  res.send(isUpdated.isUpdated);
+  res.send(isUpdated);
 });
 
 //endpoint for the android app to get the new added data
@@ -67,7 +67,7 @@ app.get("/getNewData", (req, res) => {
 });
 
 //endpoint for the android app to get the data of the block chain
-app.get("/getExsistingData", (req, res) => {
+app.get("/getExistingData", (req, res) => {
   let whatev2 = fs.readFileSync(oldChain, "utf8");
   res.json(whatev2);
 });
@@ -80,6 +80,8 @@ app.post("/sendData", (req, res) => {
     isUpdated: false
   };
   fs.writeFileSync(link2, JSON.stringify(obj));
+  console.log(newChain);
+  res.end();
 });
 
 //setting the port
