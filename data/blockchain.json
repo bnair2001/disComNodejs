@@ -1,0 +1,15 @@
+[
+  {
+    "index": 1,
+    "time": 1562414264,
+    "locations": [
+      {
+        "locationOf": "Demo",
+        "receiver": "test",
+        "coordinates": "11.127122499999999,78.6568942"
+      }
+    ],
+    "nounce": 0,
+    "prehash": "0"
+  }
+]
