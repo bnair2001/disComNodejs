@@ -74,14 +74,19 @@ app.get("/getExistingData", (req, res) => {
 
 //endpoint for the android app to send the newly formed chain so that data inside the node updates
 app.post("/sendData", (req, res) => {
-  let newChain = req.body.data;
-  fs.writeFileSync(oldChain, JSON.stringify(newChain));
-  let obj = {
-    isUpdated: false
-  };
-  fs.writeFileSync(link2, JSON.stringify(obj));
-  console.log(newChain);
-  res.send("Success");
+  try{
+      let newChain = req.body.data;
+      fs.writeFileSync(oldChain, JSON.stringify(newChain));
+      let obj = {
+        isUpdated: false
+      };
+      fs.writeFileSync(link2, JSON.stringify(obj));
+      console.log(newChain);
+      res.send("Success");
+  }catch(err){
+    res.send("Failed");
+  }
+
 });
 
 //setting the port
