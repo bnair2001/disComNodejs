@@ -81,7 +81,7 @@ app.post("/sendData", (req, res) => {
   };
   fs.writeFileSync(link2, JSON.stringify(obj));
   console.log(newChain);
-  res.end();
+  res.send("Success");
 });
 
 //setting the port
